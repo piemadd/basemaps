@@ -1,20 +1,5 @@
 package com.protomaps.basemap.layers;
 
-import static com.onthegomap.planetiler.TestUtils.newLineString;
-
-import com.onthegomap.planetiler.FeatureCollector;
-import com.onthegomap.planetiler.TestUtils;
-import com.onthegomap.planetiler.reader.SimpleFeature;
-import com.onthegomap.planetiler.reader.osm.OsmElement;
-import com.onthegomap.planetiler.reader.osm.OsmReader;
-import com.onthegomap.planetiler.reader.osm.OsmRelationInfo;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 
 /*
 

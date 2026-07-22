@@ -1,12 +1,5 @@
 package com.protomaps.basemap.layers;
 
-import static com.onthegomap.planetiler.TestUtils.newPoint;
-
-import com.onthegomap.planetiler.reader.SimpleFeature;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.junit.jupiter.api.Test;
 
 /*
 class PlacesTest extends LayerTest {

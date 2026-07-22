@@ -14,10 +14,7 @@ import com.protomaps.basemap.layers.Buildings;
 import com.protomaps.basemap.layers.Earth;
 import com.protomaps.basemap.layers.Landcover;
 import com.protomaps.basemap.layers.Landuse;
-//import com.protomaps.basemap.layers.Places;
-//import com.protomaps.basemap.layers.Pois;
 import com.protomaps.basemap.layers.Roads;
-//import com.protomaps.basemap.layers.Transit;
 import com.protomaps.basemap.layers.Water;
 import com.protomaps.basemap.postprocess.Clip;
 import com.protomaps.basemap.text.FontRegistry;
@@ -78,7 +75,7 @@ public class Basemap extends ForwardingProfile {
       registerSourceHandler("osm", place::processOsm);
       registerSourceHandler("pm:overture", place::processOverture);
     }
-
+    
     if (layer.isEmpty() || layer.equals(Pois.LAYER_NAME)) {
       var poi = new Pois(qrankDb);
       registerHandler(poi);

@@ -1,14 +1,7 @@
 package com.protomaps.basemap.layers;
 
 import static com.onthegomap.planetiler.TestUtils.*;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import com.onthegomap.planetiler.reader.SimpleFeature;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.junit.jupiter.api.Test;
-import org.locationtech.jts.geom.Geometry;
 
 /*
 class PoisTest extends LayerTest {
