@@ -14,10 +14,10 @@ import com.protomaps.basemap.layers.Buildings;
 import com.protomaps.basemap.layers.Earth;
 import com.protomaps.basemap.layers.Landcover;
 import com.protomaps.basemap.layers.Landuse;
-import com.protomaps.basemap.layers.Places;
-import com.protomaps.basemap.layers.Pois;
+//import com.protomaps.basemap.layers.Places;
+//import com.protomaps.basemap.layers.Pois;
 import com.protomaps.basemap.layers.Roads;
-import com.protomaps.basemap.layers.Transit;
+//import com.protomaps.basemap.layers.Transit;
 import com.protomaps.basemap.layers.Water;
 import com.protomaps.basemap.postprocess.Clip;
 import com.protomaps.basemap.text.FontRegistry;
@@ -71,6 +71,7 @@ public class Basemap extends ForwardingProfile {
       registerSourceHandler("pm:overture", landcover::processOverture);
     }
 
+    /*
     if (layer.isEmpty() || layer.equals(Places.LAYER_NAME)) {
       var place = new Places(countryCoder);
       registerHandler(place);
@@ -84,6 +85,7 @@ public class Basemap extends ForwardingProfile {
       registerSourceHandler("osm", poi::processOsm);
       registerSourceHandler("pm:overture", poi::processOverture);
     }
+    */
 
     if (layer.isEmpty() || layer.equals(Roads.LAYER_NAME)) {
       var roads = new Roads(countryCoder);
@@ -92,11 +94,13 @@ public class Basemap extends ForwardingProfile {
       registerSourceHandler("pm:overture", roads::processOverture);
     }
 
+    /*
     if (layer.isEmpty() || layer.equals(Transit.LAYER_NAME)) {
       var transit = new Transit();
       registerHandler(transit);
       registerSourceHandler("osm", transit::processOsm);
     }
+    */
 
     if (layer.isEmpty() || layer.equals(Water.LAYER_NAME)) {
       var water = new Water();

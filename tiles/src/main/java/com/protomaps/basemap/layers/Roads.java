@@ -89,7 +89,7 @@ public class Roads implements ForwardingProfile.LayerPostProcessor, ForwardingPr
       with("railway"),
       use("kind", "rail"),
       use("kindDetail", fromTag("railway")),
-      use("minZoom", 11)
+      use("minZoom", 8)
     ),
     rule(
       with("railway", "service"),
@@ -149,13 +149,13 @@ public class Roads implements ForwardingProfile.LayerPostProcessor, ForwardingPr
       with("aeroway", "taxiway"),
       use("kind", "aeroway"),
       use("kindDetail", "taxiway"),
-      use("minZoom", 10)
+      use("minZoom", 9)
     ),
     rule(
       with("aeroway", "runway"),
       use("kind", "aeroway"),
       use("kindDetail", "runway"),
-      use("minZoom", 9)
+      use("minZoom", 8)
     )
   )).index();
 
@@ -243,14 +243,14 @@ public class Roads implements ForwardingProfile.LayerPostProcessor, ForwardingPr
       use("pm:minzoomShield", 12)),
 
     // Major roads show up early also
-    rule(with("pm:kind", "major_road"), with("pm:highway", "trunk"), use("pm:minzoom", 6), use("pm:minzoomName", 12),
-      use("pm:minzoomShield", 8)),
-    rule(with("pm:kind", "major_road"), with("pm:highway", "trunk_link"), use("pm:minzoom", 6),
+    rule(with("pm:kind", "major_road"), with("pm:highway", "trunk"), use("pm:minzoom", 9), use("pm:minzoomName", 12),
+      use("pm:minzoomShield", 9)),
+    rule(with("pm:kind", "major_road"), with("pm:highway", "trunk_link"), use("pm:minzoom", 9),
       use("pm:minzoomName", 12),
       use("pm:minzoomShield", 12)),
-    rule(with("pm:kind", "major_road"), with("pm:highway", "primary"), use("pm:minzoom", 7), use("pm:minzoomName", 12),
+    rule(with("pm:kind", "major_road"), with("pm:highway", "primary"), use("pm:minzoom", 9), use("pm:minzoomName", 12),
       use("pm:minzoomShield", 10)),
-    rule(with("pm:kind", "major_road"), with("pm:highway", "primary_link"), use("pm:minzoom", 7),
+    rule(with("pm:kind", "major_road"), with("pm:highway", "primary_link"), use("pm:minzoom", 9),
       use("pm:minzoomName", 13),
       use("pm:minzoomShield", 11)),
     rule(with("pm:kind", "major_road"), with("pm:highway", "secondary"), use("pm:minzoom", 9),
@@ -289,17 +289,17 @@ public class Roads implements ForwardingProfile.LayerPostProcessor, ForwardingPr
     rule(
       with("pm:country", "US"),
       with("highway", "motorway", "motorway_link", "trunk", "trunk_link"),
-      use("pm:minzoom", 7)
+      use("pm:minzoom", 9)
     ),
     rule(
       with("pm:country", "US"),
       with("_r_network_US:US"),
-      use("pm:minzoom", 6)
+      use("pm:minzoom", 9)
     ),
     rule(
       with("pm:country", "US"),
       with("_r_network_US:I"),
-      use("pm:minzoom", 3)
+      use("pm:minzoom", 9)
     )
 
   )).index();
