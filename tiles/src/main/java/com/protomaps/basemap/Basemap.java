@@ -357,10 +357,10 @@ public class Basemap extends ForwardingProfile {
       Buildings.LAYER_NAME,
       Landuse.LAYER_NAME,
       Landcover.LAYER_NAME,
-      Places.LAYER_NAME,
-      Pois.LAYER_NAME,
+      //Places.LAYER_NAME,
+      //Pois.LAYER_NAME,
       Roads.LAYER_NAME,
-      Transit.LAYER_NAME,
+      //Transit.LAYER_NAME,
       Water.LAYER_NAME,
       Earth.LAYER_NAME
     );
