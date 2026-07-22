@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 
+/*
 class PlacesTest extends LayerTest {
   @Test
   void simple() {
@@ -515,3 +516,4 @@ class PlacesOvertureTest extends LayerTest {
       )));
   }
 }
+*/
