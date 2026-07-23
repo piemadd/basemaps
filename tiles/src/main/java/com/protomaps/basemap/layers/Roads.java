@@ -89,7 +89,7 @@ public class Roads implements ForwardingProfile.LayerPostProcessor, ForwardingPr
       with("railway"),
       use("kind", "rail"),
       use("kindDetail", fromTag("railway")),
-      use("minZoom", 8)
+      use("minZoom", 6)
     ),
     rule(
       with("railway", "service"),
@@ -277,11 +277,11 @@ public class Roads implements ForwardingProfile.LayerPostProcessor, ForwardingPr
 
     // Non-roads
     rule(with("pm:kind", "ferry"), use("pm:minzoom", 11)),
-    rule(with("pm:kind", "rail"), use("pm:minzoom", 11)),
+    rule(with("pm:kind", "rail"), use("pm:minzoom", 6)),
     rule(
       with("pm:kind", "rail"),
       with("pm:kindDetail", "funicular", "light_rail", "monorail", "narrow_gauge", "subway", "tram", "unknown"),
-      use("pm:minzoom", 14)
+      use("pm:minzoom", 10)
     ),
 
     // Freeways in the US are special
