@@ -69,7 +69,6 @@ public class Basemap extends ForwardingProfile {
       registerSourceHandler("pm:overture", landcover::processOverture);
     }
 
-    /*
     if (layer.isEmpty() || layer.equals(Places.LAYER_NAME)) {
       var place = new Places(countryCoder);
       registerHandler(place);
@@ -77,6 +76,7 @@ public class Basemap extends ForwardingProfile {
       registerSourceHandler("pm:overture", place::processOverture);
     }
     
+    /*
     if (layer.isEmpty() || layer.equals(Pois.LAYER_NAME)) {
       var poi = new Pois(qrankDb);
       registerHandler(poi);
@@ -355,7 +355,7 @@ public class Basemap extends ForwardingProfile {
       Buildings.LAYER_NAME,
       Landuse.LAYER_NAME,
       Landcover.LAYER_NAME,
-      //Places.LAYER_NAME,
+      Places.LAYER_NAME,
       //Pois.LAYER_NAME,
       Roads.LAYER_NAME,
       //Transit.LAYER_NAME,
