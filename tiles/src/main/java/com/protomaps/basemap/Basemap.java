@@ -76,7 +76,7 @@ public class Basemap extends ForwardingProfile {
       registerSourceHandler("osm", place::processOsm);
       registerSourceHandler("pm:overture", place::processOverture);
     }
-    
+
     /*
     if (layer.isEmpty() || layer.equals(Pois.LAYER_NAME)) {
       var poi = new Pois(qrankDb);

@@ -2,7 +2,6 @@ package com.protomaps.basemap.layers;
 
 
 /*
-
 class RoadsTest extends LayerTest {
   private FeatureCollector processWith(String... arguments) {
     Map<String, Object> tags = new HashMap<>();
@@ -375,7 +374,7 @@ class RoadsTest extends LayerTest {
     assertFeatures(12,
       List.of(Map.of("kind", "rail",
         "kind_detail", "a",
-        "_minzoom", 11
+        "_minzoom", 6
       )),
       processWithRelationAndCoords("",
         0, 0, 1, 1,
@@ -1234,5 +1233,4 @@ class RoadsOvertureTest extends LayerTest {
     ), results);
   }
 }
-
 */
