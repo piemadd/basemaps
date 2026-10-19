@@ -14,6 +14,7 @@ import com.protomaps.basemap.layers.Buildings;
 import com.protomaps.basemap.layers.Earth;
 import com.protomaps.basemap.layers.Landcover;
 import com.protomaps.basemap.layers.Landuse;
+import com.protomaps.basemap.layers.Places;
 import com.protomaps.basemap.layers.Roads;
 import com.protomaps.basemap.layers.Water;
 import com.protomaps.basemap.postprocess.Clip;
