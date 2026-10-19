@@ -11,17 +11,18 @@ import {
   NavigationControl,
   Popup,
   addProtocol,
-  getRTLTextPluginStatus,
-  default as maplibregl,
   removeProtocol,
-  setRTLTextPlugin,
+  setWorkerUrl,
 } from "maplibre-gl";
+import * as maplibregl from "maplibre-gl";
 import type {
   LngLatBoundsLike,
   MapGeoJSONFeature,
+  MapMouseEvent,
   MapTouchEvent,
   StyleSpecification,
 } from "maplibre-gl";
+import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import "maplibre-gl/dist/maplibre-gl.css";
 import {
   default as MaplibreGeocoder,
@@ -50,9 +51,11 @@ import {
 } from "./utils";
 import "@maplibre/maplibre-gl-geocoder/dist/maplibre-gl-geocoder.css";
 
+setWorkerUrl(workerUrl);
+
 const STYLE_MAJOR_VERSION = 5;
 
-const DEFAULT_TILES = "https://demo-bucket.protomaps.com/v4.pmtiles";
+const DEFAULT_TILES = "https://latest.protomaps.com/v4.pmtiles";
 
 const ATTRIBUTION =
   '<a href="https://github.com/protomaps/basemaps">Protomaps</a> © <a href="https://openstreetmap.org">OpenStreetMap</a>';
@@ -255,13 +258,6 @@ function MapLibreView(props: {
   onMount(() => {
     props.ref?.({ fit });
 
-    if (getRTLTextPluginStatus() === "unavailable") {
-      setRTLTextPlugin(
-        "https://unpkg.com/@mapbox/mapbox-gl-rtl-text@0.2.3/mapbox-gl-rtl-text.min.js",
-        true,
-      );
-    }
-
     if (!mapContainer) {
       console.error("Could not mount map element");
       return;
@@ -372,7 +368,7 @@ function MapLibreView(props: {
       });
     });
 
-    const showContextMenu = (e: MapTouchEvent) => {
+    const showContextMenu = (e: MapMouseEvent | MapTouchEvent) => {
       const features = map.queryRenderedFeatures(e.point);
       if (hiddenRef && features.length) {
         hiddenRef.innerHTML = "";
@@ -385,7 +381,7 @@ function MapLibreView(props: {
       }
     };
 
-    map.on("contextmenu", (e: MapTouchEvent) => {
+    map.on("contextmenu", (e: MapMouseEvent) => {
       showContextMenu(e);
     });
 
@@ -406,12 +402,9 @@ function MapLibreView(props: {
     map.on("touchend", clearLongPress);
     map.on("touchcancel", clearLongPress);
     map.on("touchmove", clearLongPress);
-    map.on("pointerdrag", clearLongPress);
-    map.on("pointermove", clearLongPress);
+    map.on("mousemove", clearLongPress);
+    map.on("drag", clearLongPress);
     map.on("moveend", clearLongPress);
-    map.on("gesturestart", clearLongPress);
-    map.on("gesturechange", clearLongPress);
-    map.on("gestureend", clearLongPress);
 
     mapRef = map;
 

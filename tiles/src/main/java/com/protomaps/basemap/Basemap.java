@@ -24,6 +24,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import org.apache.parquet.ParquetReadOptions;
 import org.apache.parquet.hadoop.ParquetFileReader;
@@ -135,7 +136,7 @@ public class Basemap extends ForwardingProfile {
 
   @Override
   public String version() {
-    return "4.15.0";
+    return "4.15.2";
   }
 
   @Override
@@ -180,7 +181,7 @@ public class Basemap extends ForwardingProfile {
         Envelope bounds = geoparquet.primaryColumnMetadata().envelope();
 
         if (bounds != null && !bounds.isNull() && bounds.getArea() > 0) {
-          String boundsStr = String.format("%f,%f,%f,%f",
+          String boundsStr = String.format(Locale.ROOT, "%f,%f,%f,%f",
             bounds.getMinX(), bounds.getMinY(), bounds.getMaxX(), bounds.getMaxY());
           return java.util.Optional.of(boundsStr);
         }
@@ -285,8 +286,8 @@ public class Basemap extends ForwardingProfile {
     }
 
     var planetiler = Planetiler.create(args)
-      .addNaturalEarthSource("ne", sourcesDir.resolve("natural_earth_vector.sqlite.zip"),
-        "https://naciscdn.org/naturalearth/packages/natural_earth_vector.sqlite.zip");
+      .addGeoPackageSource("ne", sourcesDir.resolve("natural_earth_vector.gpkg.zip"),
+        "https://naciscdn.org/naturalearth/packages/natural_earth_vector.gpkg.zip");
 
     if (!overtureFile.isEmpty()) {
       Path base = args.inputFile("overture", "overture base directory", Path.of("data", "overture"));

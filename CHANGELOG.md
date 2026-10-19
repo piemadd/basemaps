@@ -1,3 +1,11 @@
+Tiles 4.15.2
+------
+- Fix parsing of commas in non-English locales [#628]
+
+Tiles 4.15.1
+------
+- Change to generic Geopackage source for Natural Earth via @mxzinke and @wipfli [#626]
+
 Tiles 4.15.0
 ------
 - derive road shields from route relations instead of way `ref` tags

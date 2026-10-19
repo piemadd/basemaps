@@ -2,7 +2,8 @@
 import { render } from "solid-js/web";
 import "./index.css";
 import type { LayerSpecification } from "@maplibre/maplibre-gl-style-spec";
-import maplibregl from "maplibre-gl";
+import * as maplibregl from "maplibre-gl";
+import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import * as pmtiles from "pmtiles";
 import { For, createEffect, createSignal, onMount } from "solid-js";
 import { layers, namedFlavor } from "../../styles/src/index.ts";
@@ -13,12 +14,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 // @ts-ignore
 import pixelmatch from "pixelmatch";
 
-if (maplibregl.getRTLTextPluginStatus() === "unavailable") {
-  maplibregl.setRTLTextPlugin(
-    "https://unpkg.com/@mapbox/mapbox-gl-rtl-text@0.2.3/mapbox-gl-rtl-text.min.js",
-    false, // we need to pre-load this, otherwise diffs will be flaky
-  );
-}
+maplibregl.setWorkerUrl(workerUrl);
 
 // Jumps the map and waits for idle, capturing a Blob of the rendered frame.
 const moveAndCaptureBlob = (
